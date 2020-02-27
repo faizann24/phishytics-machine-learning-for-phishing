@@ -10,11 +10,15 @@ This repository contains code for the blog post [Phishytics – Machine Learning
 | :--- | :----------
 | phishytics-machine-learning-for-phishing | Main folder.
 | &boxur;&nbsp; tokenizer | Folder to store the tokenizer output files.
+| &boxur;&nbsp; saved_models | Folder to save trained models.
+| &boxur;&nbsp; pretrained_models | Folder containing required model files to run the pre-trained phishing detection model.
 | &boxur;&nbsp; labeled_data | Folder containing data for phishing and legitimate websites.
 | &ensp;&ensp; &boxvr;&nbsp; phishing_htmls| HTML files of phishing web pages. Please do not change the folder names.
 | &ensp;&ensp; &boxvr;&nbsp; legitimate_htmls| HTML files of legitimate web pages. Please do not change the folder names.
+| &boxvr;&nbsp; create_data_for_tokenization.py | Create data for tokenization and apply byte pair encodings to get tokens.
 | &boxvr;&nbsp; train_phishing_detection_model.py | Train a phishing website detection model.
 | &boxvr;&nbsp; test_model.py | Test a website for phishing using our pre-trained random forest model.
+| &boxvr;&nbsp; test_pretrained_model.py | Test a fully trained Random Forest model with 99% test accuracy on any given website.
 
 ## Usage
 ### Packages
