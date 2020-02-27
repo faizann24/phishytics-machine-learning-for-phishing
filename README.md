@@ -23,6 +23,7 @@ You will need to install the following package to train and test the models.
 - [Numpy](https://numpy.org/)
 - [Tokenizers](https://github.com/huggingface/tokenizers)
 - [Langdetect](https://pypi.org/project/langdetect/)
+- [Joblib](https://joblib.readthedocs.io/en/latest/)
 
 ### How to run
 #### 1. Data Tokenization

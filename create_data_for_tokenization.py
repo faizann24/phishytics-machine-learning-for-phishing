@@ -20,7 +20,7 @@ minFrequency = args.min_frequency
 
 """
 How to run:
-python3 create_data_for_tokenization.py --labeled_data_folder labeled_data --vocab_size 100 --min_frequency 3
+python3 create_data_for_tokenization.py --labeled_data_folder labeled_data --vocab_size 300 --min_frequency 5
 """
 
 # Get all html files
@@ -50,4 +50,4 @@ tokenizer = ByteLevelBPETokenizer()
 tokenizer.train("tokenizer/htmlCodePerLine.txt", min_frequency=minFrequency, vocab_size = vocabSize)
 print("Vocabulary size is: %d\nNOTE: Sometimes, the vocab size might not be equal to the input 'vocab_size'\n" % (tokenizer.get_vocab_size()))
 tokenizer.save("tokenizer", "tokenizer.tok")
-print("Tokenizer files have been saved in tokenizer directory...")
+print("Tokenizer files have been saved in 'tokenizer' directory...")

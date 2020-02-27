@@ -10,6 +10,7 @@ import numpy as np
 from os import walk
 import pandas as pd
 import matplotlib.pyplot as plt
+from joblib import dump, load
 plt.style.use('seaborn-white')
 plt.rc('grid', linestyle="dotted", color='#a0a0a0')
 plt.rcParams['axes.edgecolor'] = "#04383F"
@@ -25,6 +26,11 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+"""
+How to run:
+python3 train_phishing_detection_model.py --tokenizer_folder tokenizer/ --labeled_data_folder labeled_data/ --ignore_other_languages 1 --apply_different_thresholds 1 --save_model_dir saved_models
+"""
 
 # Parsing arguments
 import argparse
@@ -111,6 +117,7 @@ for i in range(0, len(files)):
 print("\nAssigning tfidf weights to tokens...\n")
 features = []
 htmlLabels = []
+totalFilesUnderConsideration = len(files) - len(ignoredFiles)
 count = 0
 for i in range(0, len(files)):
 	file = files[i]
@@ -134,7 +141,8 @@ for i in range(0, len(files)):
 	# apply tfidf weighting
 	array = [0] * tokenizerVocabSize
 	for item in outputDict:
-		array[item] = (outputDict[item]) * (math.log10(len(files) / len(docDict[item])))
+		if len(docDict[item]) > 0:
+			array[item] = (outputDict[item]) * (math.log10(len(files) / len(docDict[item])))
 	
 	features.append(array)
 	htmlLabels.append(label)
@@ -198,3 +206,10 @@ for i in range(EXPERIMENT_ITERATIONS):
 print("Printing average results of %d experimental iterations" % EXPERIMENT_ITERATIONS)
 print("\n***********\nAVERAGED RESULTS\nAccuracy: %.2f, Precision: %.2f, Recall: %.2f, Fscore: %.2f, AUC: %.2f\n***********" % 
 																(np.mean(accuracies), np.mean(precisions), np.mean(recalls), np.mean(fscores), np.mean(aucs)))	
+
+# Saving the model
+docDict["totalFilesUnderConsideration"] = totalFilesUnderConsideration # Adding total documents that we used during training
+print("Saving the model in '%s' from the last experimental iteration..." % saveModelDirectory)
+dump(classifier, saveModelDirectory + "/phishytics-model.joblib")
+print("Saving the document frequency dictionary as well because we will need it if we ever want to test the model")
+np.save(saveModelDirectory + "/phishytics-model-tfidf-dictionary.npy", docDict)
