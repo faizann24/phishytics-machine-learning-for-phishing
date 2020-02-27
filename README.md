@@ -11,8 +11,8 @@ This repository contains code for the blog post [Phishytics – Machine Learning
 | phishytics-machine-learning-for-phishing | Main folder.
 | &boxur;&nbsp; tokenizer | Folder to store the tokenizer output files.
 | &boxur;&nbsp; labeled_data | Folder containing data for phishing and legitimate websites.
-| &ensp;&ensp; &boxvr;&nbsp; phishing_htmls| HTML files of phishing web pages. 
-| &ensp;&ensp; &boxvr;&nbsp; legitimate_htmls| HTML files of legitimate web pages. 
+| &ensp;&ensp; &boxvr;&nbsp; phishing_htmls| HTML files of phishing web pages. Please do not change the folder names.
+| &ensp;&ensp; &boxvr;&nbsp; legitimate_htmls| HTML files of legitimate web pages. Please do not change the folder names.
 | &boxvr;&nbsp; phishing_detection.py | Train a phishing website detection model.
 | &boxvr;&nbsp; test_website.py | Test a website for phishing using our pre-trained random forest model.
 
@@ -25,9 +25,9 @@ You will need to install the following package to train and test the models.
 - [Langdetect](https://pypi.org/project/langdetect/)
 
 ### How to run
-In order to run the model, please use the following command:
+In order to run the model, you first need to tokenize all the HTML files into tokens. Once the html files are in their respective folders, run the following command.
 ```
-python3 attribution_model.py --articles_per_author 250 --authors_to_keep 5 --data_folder sample_data
+python3 create_data_for_tokenization.py --labeled_data_folder labeled_data --vocab_size 100 --min_frequency 3
 ```
 The script takes three parameters as inputs:
 - articles_per_author: How many articles do you want to use per author. The range can be anywhere between [10-Maximum Number of Articles per any Author]
