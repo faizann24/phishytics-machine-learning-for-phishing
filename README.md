@@ -13,8 +13,8 @@ This repository contains code for the blog post [Phishytics – Machine Learning
 | &boxur;&nbsp; labeled_data | Folder containing data for phishing and legitimate websites.
 | &ensp;&ensp; &boxvr;&nbsp; phishing_htmls| HTML files of phishing web pages. Please do not change the folder names.
 | &ensp;&ensp; &boxvr;&nbsp; legitimate_htmls| HTML files of legitimate web pages. Please do not change the folder names.
-| &boxvr;&nbsp; phishing_detection.py | Train a phishing website detection model.
-| &boxvr;&nbsp; test_website.py | Test a website for phishing using our pre-trained random forest model.
+| &boxvr;&nbsp; train_phishing_detection_model.py | Train a phishing website detection model.
+| &boxvr;&nbsp; test_model.py | Test a website for phishing using our pre-trained random forest model.
 
 ## Usage
 ### Packages
