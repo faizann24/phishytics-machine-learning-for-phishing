@@ -24,6 +24,7 @@ You will need to install the following package to train and test the models.
 - [Tokenizers](https://github.com/huggingface/tokenizers)
 - [Langdetect](https://pypi.org/project/langdetect/)
 - [Joblib](https://joblib.readthedocs.io/en/latest/)
+- [Requests](https://requests.readthedocs.io/en/master/)
 
 ### How to run
 #### 1. Data Tokenization

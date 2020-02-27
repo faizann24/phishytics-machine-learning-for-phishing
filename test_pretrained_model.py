@@ -21,13 +21,13 @@ from langdetect import detect
 
 """
 How to run:
-python3 test_pretrained_model.py --tokenizer_folder pretrained-models --threshold 0.5 --model_dir pretrained-models --website_to_test https://www.google.com
+python3 test_pretrained_model.py --tokenizer_folder pretrained_models --threshold 0.5 --model_dir pretrained_models --website_to_test https://www.google.com
 """
 
 # Parsing arguments
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("--tokenizer_folder", type=str, default = "pretrained-models", help="Folder where tokenizer files have been placed")
+parser.add_argument("--tokenizer_folder", type=str, default = "pretrained_models", help="Folder where tokenizer files have been placed")
 parser.add_argument("--threshold", type=float, default = 0.5, help="Which threshold to use for testing")
 parser.add_argument("--model_dir", type=str, default = "pretrained-models", help="Directory of trained models.")
 parser.add_argument("--website_to_test", type=str, default = "https://www.google.com", help="Website to test")
