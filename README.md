@@ -9,6 +9,7 @@ This repository contains code for the blog post [Phishytics – Machine Learning
 | Path | Description
 | :--- | :----------
 | phishytics-machine-learning-for-phishing | Main folder.
+| &boxur;&nbsp; tokenizer | Folder to store the tokenizer output files.
 | &boxur;&nbsp; labeled_data | Folder containing data for phishing and legitimate websites.
 | &ensp;&ensp; &boxvr;&nbsp; phishing_htmls| HTML files of phishing web pages. 
 | &ensp;&ensp; &boxvr;&nbsp; legitimate_htmls| HTML files of legitimate web pages. 
