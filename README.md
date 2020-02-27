@@ -14,3 +14,11 @@ This repository contains code for the blog post [Phishytics – Machine Learning
 | &ensp;&ensp; &boxvr;&nbsp; legitimate_htmls| HTML files of legitimate web pages. 
 | &boxvr;&nbsp; phishing_detection.py | Train a phishing website detection model.
 | &boxvr;&nbsp; test_website.py | Test a website for phishing using our pre-trained random forest model.
+
+## Usage
+### Packages
+You will need to install the following package to train and test the models.
+- [Scikit-learn](https://scikit-learn.org/)
+- [Numpy](https://numpy.org/)
+- [Tokenizers](https://github.com/huggingface/tokenizers)
+- [Langdetect](https://pypi.org/project/langdetect/)
