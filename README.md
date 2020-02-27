@@ -25,6 +25,7 @@ You will need to install the following package to train and test the models.
 - [Langdetect](https://pypi.org/project/langdetect/)
 
 ### How to run
+#### 1. Data Tokenization
 In order to run the model, you first need to tokenize all the HTML files into tokens. Once the html files are in their respective folders, run the following command.
 ```
 python3 create_data_for_tokenization.py --labeled_data_folder labeled_data --vocab_size 100 --min_frequency 3
