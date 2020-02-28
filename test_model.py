@@ -38,18 +38,6 @@ savedModelDirectory = args.model_dir
 websiteToTest = args.website_to_test
 threshold = args.threshold
 
-def detectLanguage(inputString):
-	"""
-	Detect language given an input html code string
-	"""
-	inputString = str(inputString) # in case it is not a string
-	language = "n/a"
-	try:
-		language = detect(fileData)
-		return language
-	except:
-		return language
-
 # Loading files
 # Load tokenization files
 tokenizer = ByteLevelBPETokenizer(
@@ -69,9 +57,14 @@ print("Document frequency dictionary loaded...")
 
 # Testing
 print("Loading webpage...")
-request = requests.get(websiteToTest)
-webpageHtml = str(request.text)
-webpageHtml = webpageHtml.replace("\n", " ")
+try:
+	request = requests.get(websiteToTest)
+	webpageHtml = str(request.text)
+	webpageHtml = webpageHtml.replace("\n", " ")
+except Exception as e:
+	print('\n',e)
+	print("\nAn error occurred, exiting now... ")
+	exit()
 
 # Convert text into feature vector
 output = tokenizer.encode(webpageHtml)
