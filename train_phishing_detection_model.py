@@ -8,24 +8,16 @@ import random
 import collections
 import numpy as np
 from os import walk
-import pandas as pd
-import matplotlib.pyplot as plt
 from joblib import dump, load
-plt.style.use('seaborn-white')
-plt.rc('grid', linestyle="dotted", color='#a0a0a0')
-plt.rcParams['axes.edgecolor'] = "#04383F"
 
 from tokenizers import ByteLevelBPETokenizer
 from langdetect import detect
 
 # Scikit learn stuff
 import sklearn
-import xgboost
 from sklearn.metrics import *
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.ensemble import RandomForestClassifier
 
 """
 How to run:

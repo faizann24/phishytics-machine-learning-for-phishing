@@ -9,13 +9,7 @@ import requests
 import collections
 import numpy as np
 from os import walk
-import pandas as pd
-import matplotlib.pyplot as plt
 from joblib import dump, load
-plt.style.use('seaborn-white')
-plt.rc('grid', linestyle="dotted", color='#a0a0a0')
-plt.rcParams['axes.edgecolor'] = "#04383F"
-
 from tokenizers import ByteLevelBPETokenizer
 from langdetect import detect
 

@@ -10,14 +10,9 @@ import collections
 import numpy as np
 from os import walk
 import pandas as pd
-import matplotlib.pyplot as plt
 from joblib import dump, load
-plt.style.use('seaborn-white')
-plt.rc('grid', linestyle="dotted", color='#a0a0a0')
-plt.rcParams['axes.edgecolor'] = "#04383F"
-
-from tokenizers import ByteLevelBPETokenizer
 from langdetect import detect
+from tokenizers import ByteLevelBPETokenizer
 
 """
 How to run:
@@ -65,8 +60,10 @@ try:
 	# Convert text into feature vector
 	output = tokenizer.encode(webpageHtml)
 	outputDict = collections.Counter(output.ids)
-except:
+except Exception as e:
 	print("**** Error loading the website ****")
+	print(e)
+	exit()
 
 # Apply tfidf weighting
 totalFilesUnderConsideration = 18500 # total number of documents/html files in our training data
