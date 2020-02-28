@@ -134,7 +134,7 @@ for i in range(0, len(files)):
 	array = [0] * tokenizerVocabSize
 	for item in outputDict:
 		if len(docDict[item]) > 0:
-			array[item] = (outputDict[item]) * (math.log10(len(files) / len(docDict[item])))
+			array[item] = (outputDict[item]) * (math.log10(len(files) / len(docDict[item]))) # this is a small future leak in the model. I should fix it sometime.
 	
 	features.append(array)
 	htmlLabels.append(label)
