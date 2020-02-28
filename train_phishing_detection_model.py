@@ -148,7 +148,7 @@ EXPERIMENT_ITERATIONS = 5
 accuracies, precisions, recalls, fscores, aucs = [], [], [], [], []
 for i in range(EXPERIMENT_ITERATIONS):
 	# Split data into training and testing
-	trainData, testData, trainLabels, testLabels = train_test_split(features, htmlLabels, test_size=0.1)
+	trainData, testData, trainLabels, testLabels = train_test_split(features, htmlLabels, test_size=0.1) # please consider this test data as validation because of the future leak in tfidf score calculation.
 	testData = trainData
 	testLabels = trainLabels
 
