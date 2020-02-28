@@ -65,7 +65,7 @@ The script takes four parameters as inputs:
 - website_to_test: Website you want to test. Please add "http://" or "https://" before the website to make everything work. Otherwise, you will face an error.
 
 ### Using Pre-trained Model
-To use the pre-trained model, please go to the 'pretrained_models' directory and unzip the 'document-frequency-dictionary.zip' file. Do not unzip it in a new directory, keep it in the same directory. Once that is done, you can run the following command to use the pre-trained model.
+To use the pre-trained model, **please go to the 'pretrained_models' directory and unzip the 'document-frequency-dictionary.zip' file**. Do not unzip it in a new directory, keep it in the same directory. Once that is done, you can run the following command to use the pre-trained model.
 ```
 python3 test_pretrained_model.py --tokenizer_folder pretrained_models --threshold 0.5 --model_dir pretrained_models --website_to_test https://www.google.com
 ```
